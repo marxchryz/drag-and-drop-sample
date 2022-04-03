@@ -135,18 +135,29 @@ function setupDropzone(target, accept) {
       console.log('drop');
       removeClass(event.target, '-drop-over');
       // event.relatedTarget.textContent = 'Dropped';
-      let drop = drops['#'.concat(event.currentTarget.id)];
+      let previousContents = [...drops['#'.concat(event.currentTarget.id)]];
 
-      // if there is an answer already
-      if (drop.length) {
-        // reset position
-        drop.map((e) => resetPosition(e));
-        // remove from array
-        drop = [];
+      // snap or swap
+      if (parent && previousContents.length) {
+        // swap
+        snap(
+          document.querySelector(previousContents[0]),
+          document.querySelector(parent)
+        );
+        snap(event.relatedTarget, event.currentTarget);
+      } else {
+        // snap target
+        snap(event.relatedTarget, event.currentTarget);
+        // reset position pag may old contents
+        previousContents.map((q) => resetPosition(q));
       }
 
-      // snap
-      snap(event.relatedTarget, event.currentTarget);
+      // remove old drops array
+      if (previousContents.length) {
+        drops['#'.concat(event.currentTarget.id)] = [
+          '#'.concat(event.relatedTarget.id),
+        ];
+      }
     });
 }
 
