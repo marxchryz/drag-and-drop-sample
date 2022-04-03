@@ -30,7 +30,7 @@ const dragPositions = draggableIds.reduce((acc, n) => {
         drops[k] = [];
       }
     });
-    console.table(Object.keys(drops).map((d) => drops?.[d]?.[0]));
+      console.table(Object.keys(drops).map((d) => drops?.[d]?.[0]));
   });
 });
 
