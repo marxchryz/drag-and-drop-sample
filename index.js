@@ -247,3 +247,16 @@ interact(document).on('ready', () => {
       : null;
 });
 /* eslint-enable multiline-ternary */
+
+window.getDrops = () => {
+  return drops;
+};
+
+window.resetDrops = () => {
+  for (let i = 0; i < droppableIds.length; i++) {
+    drops[droppableIds[i]] = [];
+  }
+  for (let i = 0; i < draggableIds.length; i++) {
+    resetPosition(draggableIds[i]);
+  }
+};
