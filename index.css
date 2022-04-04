@@ -12,13 +12,14 @@ body {
 
 .dropzone {
     overflow: hidden;
-    margin: .5em;
-    padding: .5em 4em;
+    /* margin: .5em; */
+    /* padding: .5em 4em; */
+    padding: 0 3em;
     color: #666;
     text-align: center;
     background: #ccc;
-    line-height: 4em;
-    /* border: 4px dashed transparent; */
+    /* line-height: 4em; */
+    border: 1px dashed white;
     transition: background .15s linear, border-color .15s linear;
 }
 
@@ -33,8 +34,8 @@ body {
     position: relative;
     z-index: 10;
     width: 75px;
-    margin: .25em;
-    padding: .5em 2em;
+    /* margin: .25em; */
+    /* padding: .5em 2em; */
     background-color: #29e;
     color: #fff;
     text-align: center;

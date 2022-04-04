@@ -5,22 +5,22 @@
     <title>Highlight dropzones with interact.js</title>
     <script type="module" src="./index.js"></script>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./prism.css" />
 </head>
-<body>
+<body class="line-numbers">
+  <div id="drag1" class="draggable js-drag">Option A</div>
+  <div id="drag2" class="draggable js-drag">Option B</div>
+  <div id="drag3" class="draggable js-drag">Option C</div>
+  <div id="drag4" class="draggable js-drag">Option D</div>
+  <div id="drag5" class="draggable js-drag">Option E</div>
+  <pre><code class="language-javascript">
+const a = function () {
+  <span id="drop1" class="dropzone js-drop keep-markup"></span>
+  console.<span id="drop2" class="dropzone js-drop keep-markup"></span>(this)
+}
 
-<div id="drag1" class="draggable js-drag">Option A</div>
-<div id="drag2" class="draggable js-drag">Option B</div>
-<div id="drag3" class="draggable js-drag">Option C</div>
-<div id="drag4" class="draggable js-drag">Option D</div>
-<div id="drag5" class="draggable js-drag">Option E</div>
-
-<div class="dropzone-wrapper">
-    <span id="drop1" class="dropzone js-drop">Dropzone</span>
-    <span id="drop2" class="dropzone js-drop">Dropzone</span>
-    <span id="drop3" class="dropzone js-drop">Dropzone</span>
-    <span id="drop4" class="dropzone js-drop">Dropzone</span>
-    <span id="drop5" class="dropzone js-drop">Dropzone</span>
-</div>
-
+a()
+  </code></pre>
 </body>
 </html>
+<script src="./prism.js"></script>

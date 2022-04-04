@@ -30,7 +30,9 @@ const dragPositions = draggableIds.reduce((acc, n) => {
         drops[k] = [];
       }
     });
-    console.table(Object.keys(drops).map((d) => drops?.[d]?.[0]));
+    console.table(
+      Object.keys(drops).map((d) => document.querySelector(drops?.[d]?.[0]))
+    );
   });
 });
 
@@ -77,7 +79,11 @@ interact('.js-drag').draggable({
         }
       }
       isInDroppable = false;
-      console.table(Object.keys(drops).map((d) => drops?.[d]?.[0]));
+      console.table(
+        Object.keys(drops).map(
+          (d) => document.querySelector(drops?.[d]?.[0])?.innerText
+        )
+      );
     },
   },
 });
@@ -126,7 +132,7 @@ function setupDropzone(target, accept) {
       // but will no longer be active
       if (active === 1) {
         removeClass(event.target, '-drop-possible');
-        event.target.textContent = 'Dropzone';
+        // event.target.textContent = 'Dropzone';
       }
 
       event.target.setAttribute('active', active - 1);
@@ -207,7 +213,8 @@ function snap(relatedTarget, currentTarget) {
 
 function resetPosition(id) {
   let element = document.querySelector(id);
-  element.setAttribute('style', '');
+  element.style.top = 0;
+  element.style.left = 0;
   element.setAttribute('data-x', '');
   element.setAttribute('data-y', '');
 }
